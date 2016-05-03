@@ -32,6 +32,7 @@ urlpatterns = patterns('',
                        url(r'^locations/', include('locations.urls', namespace='locations')),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^search/$', search),
+                       url(r'^team/', include('Team.urls', namespace='Team')),
 
 
 

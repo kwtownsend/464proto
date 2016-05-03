@@ -1,0 +1,16 @@
+<!-- <ul style="list-style: none;">
+    {%  for req in member_requests %}
+        <li><a href="{% url 'members:detail' pk=req.requester.pk %}">{{ req.requester.username }}</a> wants to join your club. </li>
+        <li>Message: "{{ req.reasonMessage }}"</li>
+        {% if leader %}
+        <li><a href="{% url 'clubs:addmember' pk=req.pk %}" class="btn btn-lg btn-primary btn-block" >Accept</a></li>
+        <li><a href="{% url 'clubs:declinemember' pk=req.pk %}" class="btn btn-lg btn-danger btn-block">Decline</a></li>
+        {% elif member %}
+        <li>Let your club leader know what you think</li>
+
+        {% else %}
+        You shouldn't be seeing this info, since you're not in the club
+        {% endif %}
+    {% endfor %}
+</ul>
+ -->

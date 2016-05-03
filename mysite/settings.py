@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'webapp',
     'login',
     'locations',
+    'Team',
 )
 
 MIDDLEWARE_CLASSES = (
