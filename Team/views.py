@@ -66,7 +66,16 @@ class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVie
         # player = self.get_object(queryset=None)
         player_list = this_team.players.all()
         player_requests = PlayerRequest.objects.filter(teamToJoin=this_team)
+        avglat = 0
+        avglon = 0
+        for p in player_requests:
+            avglat += p.player.latitude
+            avglon += p.player.longitude
+        avglat = avglat / len(player_requests)
+        avglon = avglon / len(player_requests)
 
+        context["avglat"] = avglat
+        context["avglon"] = avglon
 
         context["player_request_count"] = len(player_requests)
         context["player_actual_count"] = len(player_list)

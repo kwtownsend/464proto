@@ -53,7 +53,7 @@
     }
     function LoadMap() {
         var mapOptions = {
-            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            center: new google.maps.LatLng({{ avglat }}, {{ avglon }}),
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
