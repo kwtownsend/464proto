@@ -1,0 +1,28 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+<h3>Thingy Details</h3>
+    <!-- <form action="{% url "lends:new" askpk=3 %}" method="POST"> -->
+    <form action="" class="form" method="POST">
+        {% csrf_token %}
+        <h3>You accept {{ thingy_shortDesc }}</h3>
+        <h4>owned by {{ thingy_owner_username }}</h4>
+        <h4>You promise to return it in {{ due_day_integer }} days, on {{ due_date }}</h4>
+{#        The actual form information is hidden because I don't know how to make it not editable #}
+        <input id="save_lend" type="submit" value="I Promise" />
+        <ul style="visibility: hidden;">
+            <li>There is date here, but it's hidden from you</li>
+            <li>{{ form.item }}</li>
+            <li>{{  form.lender }}</li>
+            <li>{{ form.borrower }}</li>
+            <li>{{ form.return_date }}</li>
+        </ul>
+    </form>
+
+{% endblock %}
+{% block sidebar %}
+    <h3>Lending Agreement</h3>
+    <h4>{{ borrower_username }}</h4>
+    <p>Magentabackpack.com does not enforce return of thingys. We're on the honor system. Be kind and return thingys on time.</p>
+    <p>If you have questions about how our site works, see our <a href="{% url 'help:home' %}">help pages</a></p>
+
+{% endblock %}

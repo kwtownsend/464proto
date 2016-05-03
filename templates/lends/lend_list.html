@@ -1,0 +1,15 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+<h2>Stuff You're lending:</h2>
+    {% for lend_object in object_list %}
+        <p>lending this:</p>
+    <h3>{{ lend_object.item.shortDescription }}</h3>
+        <a href="{% url 'lends:delete' pk=lend_object.pk %}">I got it back!</a>
+    {% endfor %}
+{% endblock %}
+{% block sidebar %}
+    <a href="{% url 'thingys:list' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to Browse Thingys</a>
+    <br/>
+    <a href="{% url 'thingys:mylist' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to My Thingys</a>
+    <a href="{% url 'asks:list' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to My Requests</a>
+{% endblock %}

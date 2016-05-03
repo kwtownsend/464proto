@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<div class="container">
+    <div class="row">
+        <!-- {% block title %}Welcome Back{% endblock %} -->
+        <!-- {% block head %}Welcome, {{ user.first_name|upper }}{% endblock %} -->
+        {% block content %}
+            <div class="col-md-4"></div>
+            <div class="container col-md-4">
+            <h3>Club Thingy Detail View</h3>
+            <h5 style="color:darkorange"><b>Database Item: </b>{{ thingy.pk }}</h5>
+            {# TODO: Delete Database Item key from template #}
+            <h1><b>Thingy: </b>{{ thingy.shortDescription }}</h1>
+            <h1><b>Desc: </b>{{ thingy.longDescription }}</h1>
+            <h1><b>Category: </b>{{ thingy.get_thingy_type_display }}</h1>
+            <h1><b> Owner: </b>{{ thingy.owner }}</h1>
+            {% if isOwner %}
+                <h3><b>This item was added: </b>{{ thingy.add_date }}</h3>
+            {% endif %}
+            {% if thingy.lendable and not isOwner %}
+            <a href="{% url 'asks:requestingNew' thingy.pk %}" class="btn btn-lg btn-primary btn-block">Ask to Borrow</a>
+            {% endif %}
+            {% if thingy.lentOut or not thingy.lendable %}
+                <h3 class="not_lendable">This thingy not lendable at this time</h3>
+            {% endif %}
+            <link href="{% url 'thingys:mylist' %}" >
+            <h4><a href="{% url 'thingys:mylist' %}" class="btn btn-lg btn-danger btn-block">Back to My Thingys List View</a></h4>
+            {% if isOwner %}
+                <h4><a href="{% url 'thingys:myupdate' thingy.pk %}" class="btn btn-lg btn-primary btn-block">Edit this item</a></h4>
+                <a href="{% url 'thingys:mydelete' pk=thingy.pk %}" class="btn btn-lg btn-danger btn-block">Delete</a>
+            {% endif %}
+        {% endblock %}
+        </div>
+        <div class="col-md-4"></div>
+

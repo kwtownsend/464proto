@@ -1,0 +1,56 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+    <!-- <h5 style="color:darkorange"><b>Database Item: </b>{{ thingy.pk }}</h5> -->
+    <!-- <div class="col-lg-8 col-md-8 col-sm-4 col-xs-8"> -->
+    {# TODO: Delete Database Item key from template #}
+    <h1><b>Thingy: </b>{{ thingy.shortDescription }}</h1>
+    <h1><b>Desc: </b>{{ thingy.longDescription }}</h1>
+    <h1><b>Category: </b>{{ thingy.get_thingy_type_display }}</h1>
+    {% if selfRelated or clubRelated %}
+        <h1><b> Owner: </b>{{ thingy.owner }}</h1>
+    {% endif %}
+    {% if selfRelated %}
+        <h3><b>This item was added: </b>{{ thingy.add_date }}</h3>
+    {% endif %}
+    <!-- </div> -->
+{% endblock %}
+{% block sidebar %}
+    {#    <link href="{% url 'thingys:mylist' %}" />#}
+    <a href="{% url 'thingys:list' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to Browse Thingys</a>
+    <br/>
+    <a href="{% url 'thingys:mylist' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to My Thingys</a>
+    <br/>
+    {#    we can test against: #}
+    {#    selfRelated, clubRelated, notRelated, pendingMemberMember, memberPendingMember #}
+    {#    These are the relationships between the viewer and the thingy owner #}
+    {% if selfRelated %}
+        <a href="{% url 'thingys:mynew' %}" class="btn btn-lg btn-default">Add a Thingy</a>
+        <br/>
+        <a href="{% url 'thingys:myupdate' thingy.pk %}" class="btn btn-lg btn-primary">Edit this item</a>
+        <br/>
+        <a href="{% url 'thingys:mydelete' thingy.pk %}" class="btn btn-lg btn-danger">Delete</a>
+        <br/>
+        {% for ask_request in ask_object_lender %}
+            <a href="{% url 'asks:requesteddeny' pk=ask_request.pk %}" class="btn btn-lg btn-danger">Cancel Request from {{ ask_request.borrower }}</a>
+        {% endfor %}
+        <br/>
+    {% endif %}
+    {% if clubRelated and thingy.lendable %}
+        {% if already_requested %}
+            <h3 class="not_lendable">You have requested this thingy</h3>
+            {% for ask_request in ask_objects %}
+                <a href="{% url 'asks:requestingDelete' pk=ask_request.pk %}" class="btn btn-lg btn-danger">Cancel Request</a>
+            <a href="{% url 'lends:new' askpk=ask_request.pk%}" class="btn btn-lg btn-default">I got the Thingy</a>
+
+            {% endfor %}
+        {% else %}
+            <a href="{% url 'asks:requestingNew' thingy.pk %}" class="btn btn-lg btn-primary btn-block">Ask to Borrow</a>
+        {% endif %}
+        <br/>
+        {#        <a href="#" class="btn" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="" data-original-title="Popover on top">Popover on top</a>#}
+    {% endif %}
+    {% if thingy.lentOut or not thingy.lendable %}
+        <h3 class="not_lendable">This thingy not lendable at this time</h3>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base_animate.html" %}
+{% block page_title %}About Magenta Backpack{% endblock %}
+{% block head %}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>Untitled</title>
+    {% load staticfiles %}
+<!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="{% static "js/edge.6.0.0.min.js" %}"></script>
+    <style>
+        .edgeLoad-EDGE-7901779 { visibility:hidden; }
+    </style>
+<script>
+   AdobeEdge.loadComposition('{% static "js/bubble_talking" %}', 'EDGE-7901779', {
+    scaleToFit: "both",
+    centerStage: "none",
+    minW: "0px",
+    maxW: "undefined",
+    width: "550px",
+    height: "400px"
+}, {dom: [ ]}, {dom: [ ]});
+</script>
+<!--Adobe Edge Runtime End-->
+
+</head>
+{% endblock %}
+{% block body %}
+<body style="margin:0;padding:0;">
+	<div id="Stage" class="EDGE-7901779">
+	</div>
+</body>
+{% endblock %}

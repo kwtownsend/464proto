@@ -1,0 +1,33 @@
+{% block footer %}
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg3 col-md-3 col-sm-12 col-xs-12">
+        <ul style="list-style: none;">
+          <li><strong>&copy; Magenta Backpack 2015</strong></li>
+          <li class="feedback"><span><a href="{% url 'about' %}">about</a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{% url 'help:home' %}">help</a></span></li>
+{# i18n isn't far enough along that we need to tell people what language they're using #}
+            {#          <li class="muted credit"><small>Current language: {{ LANGUAGE_CODE }}</small></li>#}
+        </ul>
+        <!-- TODO: create css styles for this, maybe a colored box? -->
+        <!-- {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li id="message_{{ forloop.counter }}"
+          {% if message.tags %} class="{{ message.tags }}">
+          {% endif %}
+          <strong>{{ message }}</strong>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %} -->
+        <!-- end From TSod -->
+      </div>
+      <div class="col-lg6 col-md-6"></div>
+      <div class="col-lg3 col-md-3 col-sm-12 col-xs-12">
+        <p class="madeIn" style="text-align: right;"><small>Made with <span><i class="fa fa-heart"></i></span> and coffee in OC.</small></p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}

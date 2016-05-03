@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!-- This is the base template for LOGGED-IN users -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block page_title %}{{ page_title }}{% endblock %}</title>
+    {% load staticfiles %}
+    <!-- trying to get base.html to use local copies of css files -->
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <!-- <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet" media="screen" /> -->
+    <link type="text/css" href="{{ STATIC_URL }}css/jumbotron.min.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-theme.min.css" rel="stylesheet" media="screen" />
+    <!-- Add any custom css or overrides to bootstrap's css into backpack.css -->
+    <link type="text/css" href="{{ STATIC_URL }}css/backpack.css" rel="stylesheet" media="screen" />
+    <!-- And really ugly overrides to debug.css -->
+    <link type="text/css" href="{{ STATIC_URL }}css/debug.css" rel="stylesheet" media="screen" />
+    <!-- This seems like it MUST be served from bootstrapcdn.com or it won't work -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Removed the linked-to css files, though it might not be a bad thing
+      to let some other server serve our css assets -->
+</head>
+<body>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% if user.is_anonymous %}
+    {% include "home_navbar.html" %}
+{% else %}
+    {% include "base_navbar.html" %}
+{% endif %}
+<!-- <h1>{% block title %}{% endblock %}</h1>
+      <h1>{% block head %}{% endblock %}</h1> -->
+<!-- TODO: Take the function of the form and move it to the modals -->
+<div class="container">
+<div class="row">
+        <div class="col-md-3">
+            {% block headingone %}
+                <h4>Heading One</h4>
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block headingtwo %}
+                <h4>Heading Two</h4>
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block headingthree %}
+                <h4>Heading Three</h4>
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block headingfour %}
+                <h4>Heading Four</h4>
+            {% endblock %}
+        </div>
+
+
+</div>
+    <div class="row">
+        <div class="col-md-3">
+            {% block colone %}
+                <h1>colone - Column One</h1>
+            {% endblock %}
+        </div>
+        <div class="col-md-3">            {% block coltwo %}
+            <h1>coltwo - Column Two</h1>
+        {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block colthree %}
+                <h1>colthree - Column Three</h1>
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block colfour %}
+                <h1>colfour - Column Four</h1>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% include "partial_base_footer.html" %}
+
+<!-- /container -->
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- end From TSod -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+</body>
+</html>

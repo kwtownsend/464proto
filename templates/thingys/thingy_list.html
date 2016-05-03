@@ -1,0 +1,9 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+    <!-- we are here -->
+    {%  include "thingys/thingy_list_partial.html" %}
+{% endblock %}
+{% block sidebar %}
+    {% include "clubs/club_list_partial.html" %}
+    <a href="{% url 'thingys:mynew' %}" class="btn btn-lg btn-default">Add a Thingy</a>
+{% endblock %}

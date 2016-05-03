@@ -1,0 +1,13 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+<h2>Stuff You're Borrowing:</h2>
+    {% for borrowed_object in object_list %}
+    <h3>{{ borrowed_object.item.shortDescription }}</h3>
+    {% endfor %}
+{% endblock %}
+{% block sidebar %}
+    <a href="{% url 'thingys:list' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to Browse Thingys</a>
+    <br/>
+    <a href="{% url 'thingys:mylist' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to My Thingys</a>
+    <a href="{% url 'asks:list' %}" class="btn btn-lg btn-default"><i class="fa fa-chevron-left"></i> Back to My Requests</a>
+{% endblock %}

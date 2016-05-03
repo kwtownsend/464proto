@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html>
+<!-- This is the base template for NOT LOGGED-IN visitors -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Magenta Backpack</title>
+
+    <!-- {% load staticfiles %} -->
+    <!-- trying to get base.html to use local copies of css files -->
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <!-- <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet" media="screen" /> -->
+    <link type="text/css" href="{{ STATIC_URL }}css/jumbotron.min.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-theme.min.css" rel="stylesheet" media="screen" />
+
+
+    <!-- Add any custom css or overrides to bootstrap's css into backpack.css -->
+    <!-- <link type="text/css" href="{{ STATIC_URL }}css/backpack.css" rel="stylesheet" media="screen" /> -->
+    <!-- And really ugly overrides to debug.css -->
+    <link type="text/css" href="{{ STATIC_URL }}css/debug.css" rel="stylesheet" media="screen" />
+    <!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css"> -->
+
+
+    <!-- This seems like it MUST be served from bootstrapcdn.com or it won't work -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/jumbotron.min.css"> -->
+
+        <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    {% load i18n %}
+    {% get_current_language as LANGUAGE_CODE %}
+
+    <!-- TODO: Roll the features of the modal windows into one template, 
+        that can be called with different parameters -->
+    {% include "home_navbar.html" %}
+    {% include "wtf_modal.html" %}
+    {% include "login_modal.html" %}
+    {% include "register_modal.html" %}
+    
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-11">
+                <h2>{% trans "Hello!" %}</h2>
+            </div>
+            <div class="col-md-1">
+                <!-- <img src="{{ STATIC_URL }}img/backpack.png" class="img-rounded" alt="Backpack Logo"> -->
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+        <hr />
+
+        <!-- <h1>{% block title %}{% endblock %}</h1> -->
+
+        <!-- <h1>{% block head %}{% endblock %}</h1> -->
+        <!-- TODO: Take the function of the form and move it to the modals -->
+        
+        {% block content %}{% endblock %}
+        <p>{% trans "Share your stuff" %}</p>
+
+        <hr>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+</body>
+</html>
+

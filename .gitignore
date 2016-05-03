@@ -1,0 +1,22 @@
+django_project/settings_secret.py*
+
+db.sqlite3
+*.sqlite3
+env.txt
+local_config.py
+*.pyc
+django_project/*.pyc
+/django_project/*.pyc
+django_project/settings.pyc
+*/*/*.pyc
+settings_secret.py
+local_config.py
+env.txt
+fantasyhelp.sqlite3
+paramiko.log
+
+# comment in .gitignore file ...
+verify/foo
+fixtures
+*.orig
+collected_static

@@ -1,0 +1,17 @@
+{% extends "base_leftSidebar.html" %}
+{% block content %}
+			<h1>Thingy Returned</h1>
+			<p>So the borrower returned "{{ lend.item.shortDescription }}"?</p>
+			<form action="{% url "lends:delete" pk=lend.pk %}" method="POST">
+	  		{% csrf_token %}
+	  		<input type="submit" class="btn btn-lg btn-danger btn-block" value="Yes, I got it back." />
+	  		<a href="{% url "lends:list" %}" class="btn btn-lg btn-default btn-block" >Cancel</a>
+			</form>
+
+{% endblock %}
+{% block sidebar %}
+<h3>Delete lend agreement page</h3>
+    <p>should be seen only by thingy owner (the lender), since only he can say the thingy has been returned, and destroy the lend agreement object.</p>
+    <br/>
+    <p>There may need to be an "abandon" button, too, if the lender believes he'll never get it back.</p>
+{% endblock %}

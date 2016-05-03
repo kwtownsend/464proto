@@ -1,0 +1,28 @@
+<!-- Home page navbar for unregistered/new visitors -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="/"> -->
+      <!-- <img class="backpackImg" alt="Magenta Backpack" src="{{ STATIC_URL }}img/football_30px.png"> -->
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li ><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <li><a href="/register/">Register</a></li>
+        <li><a class='home_login' href="{% url 'login' %}">Login</a></li>
+      </ul>
+      <form method="get" action="/search" id="searchbox52" class="navbar-form navbar-left text-center">
+        <input id="search52" name="q" type="text" placeholder="Search..." />
+      </form>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+</nav>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 200" style="enable-background:new 0 0 300 200;" xml:space="preserve">
+<g id="bg" style="display:none;">
+	<rect x="3.819" y="-1.671" style="display:inline;fill:#E0E0D7;" width="300.986" height="200"/>
+</g>
+<g id="heart">
+	<path style="fill:#E054A6;" d="M155.401,100.126c9.547-9.724,18.374-19.284,24.344-23.049
+		c18.854-11.893,15.845-28.697,12.348-37.094c-5.666-13.604-26.668-13.604-36.692-4.296c-10.024-9.308-31.026-9.308-36.692,4.296
+		c-3.497,8.396-6.506,25.201,12.348,37.094C137.027,80.842,145.854,90.403,155.401,100.126z"/>
+</g>
+<g id="book">
+	<polygon style="fill:#FF0000;" points="284.969,96.608 225.105,94.535 225.837,6.313 231.039,4.51 237.051,4.333 285.722,6.019 	
+		"/>
+	<path style="fill:#1E1E17;" d="M237.051,4.333c0,0-8.092-0.059-11.956,0.008c-4.079,2.522-6.801,5.463-9.25,10.669l-0.812,79.615
+		l13.178,9.58l0.898-88.007l-9.437-0.845c1.345-3.81,3.174-4.996,6.901-7.668l10.43,1.352L237.051,4.333z"/>
+	<g>
+		<polygon style="fill:#DDDFE1;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="283.975,99.488 223.527,94.075 
+			224.417,6.761 284.866,12.175 		"/>
+		<polygon style="fill:#E3E4E6;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="283.807,13.56 282.917,100.873 
+			222.468,95.46 223.358,8.146 		"/>
+		<polygon style="fill:#E9EAEB;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="282.748,14.944 281.858,102.258 
+			221.409,96.845 222.3,9.531 		"/>
+		<polygon style="fill:#EEEFF0;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="281.69,16.329 280.799,103.643 
+			220.35,98.229 221.241,10.916 		"/>
+		<polygon style="fill:#F4F5F5;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="280.631,17.714 279.74,105.028 
+			219.291,99.614 220.182,12.301 		"/>
+		<polygon style="fill:#FAFAFA;stroke:#CED3C6;stroke-width:0.5;stroke-miterlimit:10;" points="278.681,106.413 218.233,100.999 
+			219.123,13.686 279.572,19.099 		"/>
+	</g>
+	<polygon style="fill:#FF0000;" points="277.925,112.814 216.229,101.747 217.544,16.355 279.239,27.422 	"/>
+	<polygon style="fill:#3A3333;" points="227.501,103.769 214.676,101.468 215.99,16.076 228.815,18.377 	"/>
+</g>
+<g id="guy">
+	<circle style="fill:#FFFFFF;" cx="58.264" cy="36.872" r="34.49"/>
+	<path style="fill:#FFFFFF;" d="M110,192.61v-91.356c0-15.176-12.417-27.592-27.592-27.592H34.121
+		c-15.176,0-27.592,12.416-27.592,27.592v91.356H110z"/>
+</g>
+<g id="glasses">
+	<circle style="fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;" cx="169.058" cy="172.243" r="25.256"/>
+	<circle style="fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;" cx="236.202" cy="172.243" r="25.256"/>
+	<path style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;" d="M119.951,129.717
+		c0.717-3.488,3.449-6.381,7.16-7.124c4.948-0.99,9.762,2.218,10.752,7.166l7.03,35.128"/>
+	<path style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;" d="M284.598,129.717
+		c-0.717-3.488-3.449-6.381-7.16-7.124c-4.948-0.99-9.762,2.218-10.752,7.166l-7.03,35.128"/>
+	<path style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;" d="M211.249,164.887
+		c0-4.957-4.018-8.975-8.975-8.975c-4.957,0-8.975,4.018-8.975,8.975"/>
+</g>
+</svg>

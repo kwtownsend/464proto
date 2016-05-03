@@ -1,0 +1,9 @@
+{% extends "base_leftSidebar.html" %}
+{% block sidebar %}
+    <ul>
+        <li><a href="{% url 'help:home' %}" class="list-group-item">Frequently Asked Questions</a></li>
+        <li><a href="{% url 'help:thingys' %}" class="list-group-item">Thingys</a></li>
+        <li><a href="{% url 'help:clubs' %}" class="list-group-item">Clubs</a></li>
+        <li><a href="{% url 'help:loans' %}" class="list-group-item">Borrowing &amp; Lending</a></li>
+    </ul>
+{% endblock %}

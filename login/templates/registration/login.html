@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Login to Magenta Backpack{% endblock %}
+{% block head %}Magenta Backpack Login{% endblock %}
+{% block content %}
+
+  <!-- //////////The login page\\\\\\\\\\\ -->
+{#  TODO: Wrap all template content areas in class="row" to make columns re-start in base templates #}
+  <div class="col-lg-4 col-md-4"></div>
+    <div class="container col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="row loginContent">
+
+    <form id="login-form" method="post" action="." class="form-signin">{% csrf_token %}
+      <h2 class="form-signin-heading">Please log in</h2>
+      {% load widget_tweaks %}
+      <label class="sr-only">Username</label>
+      {% render_field form.username|attr:"required autofocus" class+="form-control" placeholder+="Username" %}
+      <!-- <input for="id_username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus> -->
+      <label class="sr-only">Password</label>
+      {% render_field form.password type+="password" id+="inputPassword" class+="form-control" placeholder+="Password" %}
+      <!-- <input for="id_password" type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
+      <button name="login" class="btn btn-lg btn-default" type="submit" value="Login" />Sign in</button>
+      <br />
+      <br />
+      <p>Or you can <a href="/register">register</a>.</p>
+      <!-- <a href="/register" class="btn btn-lg btn-danger">Register</a> -->
+
+    </form>
+    <br />
+    {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+  </div>
+  <div class="col-lg-4 col-md-4"></div>
+  </div>
+    {% include "partial_base_footer.html" %}
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "base_leftSidebar.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+			<h1>Delete Thingy</h1>
+			<p>Are you sure you want to delete the thingy "{{ thingy }}"?</p>
+			<form action="{% url "thingys:mydelete" pk=thingy.id %}" method="POST">
+	  		{% csrf_token %}
+	  		<input type="submit" class="btn btn-lg btn-danger btn-block" value="Yes, delete." />
+	  		<a href="{% url "thingys:mylist" %}" class="btn btn-lg btn-default btn-block" >Cancel</a>
+			</form>
+		</div>	
+	</div>
+</div>
+{% endblock %}

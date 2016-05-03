@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!-- This is the base template for LOGGED-IN users -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block page_title %}{{ page_title }}{% endblock %}</title>
+    {% load staticfiles %}
+    <!-- trying to get base.html to use local copies of css files -->
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <!-- <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet" media="screen" /> -->
+    <link type="text/css" href="{{ STATIC_URL }}css/jumbotron.min.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap-theme.min.css" rel="stylesheet" media="screen" />
+    <!-- Add any custom css or overrides to bootstrap's css into backpack.css -->
+    <link type="text/css" href="{{ STATIC_URL }}css/backpack.css" rel="stylesheet" media="screen" />
+    <!-- And really ugly overrides to debug.css -->
+    <link type="text/css" href="{{ STATIC_URL }}css/debug.css" rel="stylesheet" media="screen" />
+    <!-- This seems like it MUST be served from bootstrapcdn.com or it won't work -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Removed the linked-to css files, though it might not be a bad thing
+      to let some other server serve our css assets -->
+</head>
+<body>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% if user.is_anonymous %}
+    {% include "home_navbar.html" %}
+{% else %}
+    {% include "base_navbar.html" %}
+{% endif %}
+<!-- TODO: Take the function of the form and move it to the modals -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-4 col-xs-8">
+            {% block content %}
+                <h1>If you can read this, your template failed to produce anything</h1>
+            {% endblock %}
+        </div>
+    </div>
+    <p class="bottom-spacer">
+   <!-- leave some whitespace so main content elements always display above footer -->
+</p>
+</div>
+{% include "partial_base_footer.html" %}
+<!-- /container -->
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- end From TSod -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+<script src="{% static "js/app.js" %}"></script>
+</body>
+</html>
