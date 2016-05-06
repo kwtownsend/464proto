@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+<div class="container">
+    <div class="row">
+        {% block content %}
+            <h4>Your Thingys List View</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        {# spacer where clubs used to be, since this template is only for anonymous users #}
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            {%  include "thingys/thingy_list_partial.html" %}
+
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <h4><a href="#">Like these items?</a>
+                                </h4>
+                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <a class="btn btn-primary" href="#">View More Items</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container -->
+        {% endblock %}
+    </div>
+</div>

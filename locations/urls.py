@@ -3,9 +3,9 @@ from . import views
 
 
 urlpatterns = [
-    # url(
- #        regex=r"^(?P<pk>\d+)$",
- #        view=views.LocationDetailView.as_view(),
- #        name="detail"
- #        ),
+    url(
+        regex=r"^(?P<pk>\d+)$",
+        view=views.LocationDetailView.as_view(),
+        name="detail"
+        ),
     ]

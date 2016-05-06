@@ -1,24 +1,43 @@
+# clubs/views.py
+from django.contrib.auth.models import User
+
+# for I18N
+from django.utils.translation import ugettext as _
+# TSoD page 98, Class-based views
+from django.core.urlresolvers import reverse
+# end TSoD
+# signals.receiver
+from django.db.models import signals
+from django.http import Http404, HttpResponseRedirect
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from braces.views import LoginRequiredMixin
+from django.contrib import messages
+from helpers.navbar_helpers import NavBarMixin
+from django.contrib import messages
+
+
 from locations.models import Zipcode
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from braces.views import LoginRequiredMixin
+from helpers.navbar_helpers import NavBarMixin
+from locations.models import Cities
 
-# class ClubActionMixin(object):
+class CityActionMixin(object):
     
-#     fields = ('name', 'description', 'zipcode')
+    fields = ('postalcode', 'city', 'state', 'county', 'latitude', 'longitude')
     
-#     @property
-#     def success_msg(self):
-#         return NotImplemented
+    @property
+    def success_msg(self):
+        return NotImplemented
 
-#     @staticmethod
-#     def is_member_current_user(self, member):
-#         """
-#         Is the current user the member being looked at
-#         :param self:
-#         :return:
-#         """
-#         pass
-
+    @staticmethod
+    def is_member_current_user(self, member):
+        """
+        Is the current user the member being looked at
+        :param self:
+        :return:
+        """
+        pass
 
 
 def welcome(request):
@@ -27,34 +46,27 @@ def welcome(request):
         context_instance=RequestContext(request),
     )   
 
-# class LocationDetailView(LoginRequiredMixin, NavBarMixin, DetailView):
-#     model = Zipcode
-#     page_title = _("Location Detail")
+class LocationDetailView(LoginRequiredMixin, CityActionMixin, NavBarMixin, DetailView):
+    model = Cities
 
-#     def get_context_data(self, **kwargs):
-#         context = super(ClubDetailView, self).get_context_data(**kwargs)
-#         # self.navBar_context(context)
-#         # context["page_title"] = _("Club Detail")
-#         # context["available_thingys"] = self.thingys_available()
-#         this_club = self.get_object(queryset=None)
-#         member_list = this_club.members.all()
-#         context["top_panel_name"] = "Members"
-#         context["bottom_panel_name"] = "Request Membership"
-#         context["member_count"] = len(member_list)
-#         if Club.is_member(this_club, self.request.user):
-#             # member specific context data goes here
-#             context["bottom_panel_name"] = "Membership Requests"
-#             context["member"] = True
-#             context["members_list"] = member_list
+    def get_context_data(self, **kwargs):
+        context = super(LocationDetailView, self).get_context_data(**kwargs)
+        this_city = self.get_object(queryset=None)
+        
+        # get context data for google map
+        geographical_info = Cities.objects.get(postalcode=this_city.postalcode)
+        # if len(geographical_set) < 1:
+        #     print("zip not found, using CSUF")
+        #     geographical_info = Zipcode.objects.get(zip=92834)
+        # else:
+        # geographical_info = geographical_set[0]
+        context["lat"] = geographical_info.latitude
+        context["lon"] = geographical_info.longitude
+        context["city"] = this_city.city
+        context["state"] = geographical_info.state
 
-#             context["member_requests"] = this_club.member_requests_list()
-#             if Club.is_leader(this_club, self.request.user):
-#                 context["leader"] = True
+        return context
 
-#         if Club.is_leader(this_club, self.request.user):
-#             # leader specific context data goes here
-#             pass
-#         return context
 
 
 # class LocationDetailView(NavBarMixin, DetailView):

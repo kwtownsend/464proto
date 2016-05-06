@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- <div class="col-md-3"></div> -->
+<div class="container col-md-4">
+<table width="100%" border="1" cellspacing="5" cellpadding="5">  
+  <tr>
+    <td <b>Zipcode  &nbsp;</b> </td>
+    <td <b>City  &nbsp;</b></td>
+    <td <b>State  &nbsp;</b></td>
+    <td <b>County  &nbsp;</b> </td>
+    <td <b>Latitude  &nbsp;</b></td>
+    <td <b>Longitude  &nbsp;</b> </td>
+  </tr>
+{%  for cities in object_list %}
+  <tr>
+    <td>{{ cities.postalcode }}</td>
+    <td> <a href="{% url 'locations:detail' cities.pk %}" style="white-space:nowrap;">{{ cities.city }} &nbsp; </a></td>
+    <td>{{ cities.state }}</td>
+    <td>{{ cities.county }}</td>
+    <td>{{ cities.latitude }}</td>
+    <td>{{ cities.longitude }}</td>
+  </tr>
+{% endfor %}
+</table> 
+</div>
+</div>
+
+{% endblock %}

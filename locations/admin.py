@@ -1,5 +1,5 @@
 from django.contrib import admin
-from locations.models import Zipcode
+from locations.models import Zipcode, Cities
 
 
 class ZipcodeAdmin(admin.ModelAdmin):
@@ -7,3 +7,10 @@ class ZipcodeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Zipcode, ZipcodeAdmin)
+
+class CitiesAdmin(admin.ModelAdmin):
+	list_display = ('city', 'state', 'county', 'latitude', 'longitude')
+
+admin.site.register(Cities, CitiesAdmin)
+
+

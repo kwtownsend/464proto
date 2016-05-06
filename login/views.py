@@ -18,7 +18,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View, DetailView, ListView
 from django.views.generic.base import ContextMixin, TemplateResponseMixin
 from django.utils.translation import ugettext as _
-
+from locations.models import Cities
 
 
 # This logic will need to be completely re-thought if we're going to use
@@ -86,16 +86,16 @@ def help_page(request):
             # context_instance=RequestContext(request),
     )
 
-# def search(request):
-#     if not request.GET.get('q'):
-#         return HttpResponseRedirect('/')
-#     searchString = request.GET.get('q')
-#     foundPlayers = Player.objects.filter(name__contains=searchString)
-#     context = RequestContext(request)
-#     context["page_title"] = _("Magenta Backpack - Search Results")
+def search(request):
+    if not request.GET.get('q'):
+        return HttpResponseRedirect('/')
+    searchString = request.GET.get('q')
+    foundCities = Cities.objects.filter(city__contains=searchString)
+    context = RequestContext(request)
+    context["page_title"] = _("Magenta Backpack - Search Results")
 
-#     return render_to_response(
-#             'search_results.html',
-#             { 'object_list': foundPlayers},
-#             context_instance=context,
-#     )
+    return render_to_response(
+            'search_results.html',
+            { 'object_list': foundCities},
+            context_instance=context,
+    )

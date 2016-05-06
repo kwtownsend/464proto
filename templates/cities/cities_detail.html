@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+        <!-- {% block title %}Welcome Back{% endblock %} -->
+        <!-- {% block head %}Welcome, {{ user.first_name|upper }}{% endblock %} -->
+        {% block content %}
+            <div class="col-md-2"></div>
+            <div class="container col-md-4">
+            <h3>Cities Detail View</h3>
+<div class="container col-md-4">
+<table width="100%" border="1" cellspacing="5" cellpadding="5">  
+  <tr>
+    <td <b>Zipcode  &nbsp;</b> </td>
+    <td <b>City  &nbsp;</b></td>
+    <td <b>State  &nbsp;</b></td>
+    <td <b>County  &nbsp;</b> </td>
+    <td <b>Latitude  &nbsp;</b></td>
+    <td <b>Longitude  &nbsp;</b> </td>
+  </tr>
+{%  for cities in object_list %}
+  <tr>
+    <td>{{ cities.postalcode }}</td>
+    <td>{{ cities.city }}</td>
+    <td>{{ cities.state }}</td>
+    <td>{{ cities.county }}</td>
+    <td>{{ cities.latitude }}</td>
+    <td>{{ cities.longitude }}</td>
+  </tr>
+{% endfor %}
+</table> 
+</div>
+</div>
+<br>
+</br>
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng({{ lat }},{{ lon }});
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</body>
+</html>
+
+<div class="col-md-5"></div>
+
+<!-- <div class="col-md-4"></div> -->
+<!-- <div class="col-md-4"> -->
+</div>
+<!-- <div class="col-md-4"></div> -->
+
+
+
+{% endblock %}
+        </div>
+        <div class="col-md-4"></div>
