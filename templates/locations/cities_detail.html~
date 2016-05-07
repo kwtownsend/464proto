@@ -25,7 +25,7 @@
 </table> 
 
 <br>
-<center><a href="{% url 'Team:askjoin' cities.pk %}" class="btn btn-lg btn-primary btn-block">Add to Itinerary</a></center>
+<center><a href="{% url 'Team:askjoin' cities.pk %}" class="btn btn-lg btn-primary btn-block">Add to Queue</a></center>
 
 <br>
 

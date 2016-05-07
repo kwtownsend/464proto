@@ -7,7 +7,7 @@
     {% block content %}
     <div class="col-md-4"></div>
     <div class="container col-md-4">
-        <h3>Please name your Itinerary</h3>
+        <h3>This is the Team data entry form</h3>
         
         <form action="" class="form" method="POST">
           {% csrf_token %}

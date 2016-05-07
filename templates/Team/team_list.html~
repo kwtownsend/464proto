@@ -9,6 +9,6 @@
 {% endblock %}
 {% block sidebar %}
 {#    TODO: make this look better, think up more content to put here. #}
-    Put List of Itineraries:<br/>
-<a href="{% url 'Team:new' %}">Create your own Itinerary</a>
+    Put list of your clubs<br/>
+<a href="{% url 'Team:new' %}">Create Your Own Club</a>
 {% endblock %}
