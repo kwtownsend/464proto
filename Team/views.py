@@ -71,15 +71,28 @@ class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVie
         for p in player_requests:
             avglat += p.player.latitude
             avglon += p.player.longitude
-        avglat = avglat / len(player_requests)
-        avglon = avglon / len(player_requests)
-        context["playlat"] = player_requests[0].player.latitude
-        context["playlon"] = player_requests[0].player.longitude
-        context["dplaylat"] = player_requests[1].player.latitude
-        context["dplaylon"] = player_requests[1].player.longitude
+        
+        if(len(player_requests) > 0):
+            context["playlat"] = player_requests[0].player.latitude
+            context["playlon"] = player_requests[0].player.longitude
+        else:
+            context["playlat"] = None
+            context["playlon"] = None
 
-        context["avglat"] = avglat
-        context["avglon"] = avglon
+        if(len(player_requests) > 1):
+            context["dplaylat"] = player_requests[1].player.latitude
+            context["dplaylon"] = player_requests[1].player.longitude
+        else:
+            context["dplaylat"] = None
+            context["dplaylon"] = None
+        if(len(player_requests) > 0):
+            context["avglat"] = avglat
+            context["avglon"] = avglon
+            avglat = avglat / len(player_requests)
+            avglon = avglon / len(player_requests)
+        else:
+            context["avglat"] = None
+            context["avglon"] = None
 
         context["player_request_count"] = len(player_requests)
         context["player_actual_count"] = len(player_list)
