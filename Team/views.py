@@ -73,6 +73,10 @@ class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVie
             avglon += p.player.longitude
         avglat = avglat / len(player_requests)
         avglon = avglon / len(player_requests)
+        context["playlat"] = player_requests[0].player.latitude
+        context["playlon"] = player_requests[0].player.longitude
+        context["dplaylat"] = player_requests[1].player.latitude
+        context["dplaylon"] = player_requests[1].player.longitude
 
         context["avglat"] = avglat
         context["avglon"] = avglon
