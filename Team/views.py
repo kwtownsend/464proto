@@ -91,8 +91,8 @@ class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVie
             avglat = avglat / len(player_requests)
             avglon = avglon / len(player_requests)
         else:
-            context["avglat"] = None
-            context["avglon"] = None
+            context["avglat"] = 37.0902
+            context["avglon"] = -95.7129
 
         context["player_request_count"] = len(player_requests)
         context["player_actual_count"] = len(player_list)

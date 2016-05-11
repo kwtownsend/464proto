@@ -75,7 +75,7 @@ var infowindow = new google.maps.InfoWindow();
 var marker, i;
 function initialize() {
 map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 10,
+    zoom: 3,
     center: new google.maps.LatLng({{ avglat }}, {{ avglon }}),
     mapTypeId: google.maps.MapTypeId.ROADMAP
 });
