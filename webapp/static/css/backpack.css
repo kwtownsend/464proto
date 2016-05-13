@@ -82,23 +82,7 @@ p.thingy_owner_line {
     outline:0;
 }
 
-.navbar-brand:hover, nav.navbar-brand:hover, ul.nav.navbar-nav.navbar-right > li:hover, ul.nav.navbar-nav > li.dropdown:hover, ul.nav.navbar-nav > li a:hover {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 0px;
-    -webkit-box-shadow: 0px 0px 30px 0px rgba(191, 63, 148, 1);
-    -moz-box-shadow:    0px 0px 30px 0px rgba(191, 63, 148, 1);
-    box-shadow:         0px 0px 30px 0px rgba(191, 63, 148, 1);
-}
 
-.navbar-brand:active, nav.navbar-brand:active, ul.nav.navbar-nav.navbar-right > li:active, ul.nav.navbar-nav > li.dropdown:active, ul.nav.navbar-nav > li a:active {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 0px;
-    -webkit-box-shadow: 0px 0px 30px 0px rgba(191, 63, 148, 1);
-    -moz-box-shadow:    0px 0px 30px 0px rgba(191, 63, 148, 1);
-    box-shadow:         0px 0px 30px 0px rgba(191, 63, 148, 1);
-}
 
 .backpackImg {
     padding-right: 8px;

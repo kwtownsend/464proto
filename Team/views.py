@@ -303,8 +303,8 @@ class TeamAskJoinView(LoginRequiredMixin, PlayerActionMixin, NavBarMixin, Create
     # fields = ["teamToJoin"]
     model = PlayerRequest
     form_class = newPlayerRequest
-    success_msg = _("Request sent to Club Leader")
-    page_title = _("Club Ask to Join")
+    success_msg = _("Request sent to Itinerary")
+    page_title = _("Itinerary Add")
 
 
     # fields = ['reasonMessage', ]
@@ -338,7 +338,7 @@ class TeamConfirmAskJoinView(LoginRequiredMixin, PlayerActionMixin, NavBarMixin,
     to join a club
     """
     model = PlayerRequest
-    page_title = _("Club Confirm ask to join")
+    page_title = _("Itinerary Confirmation")
 
 
 # class ClubEditMemberView(LoginRequiredMixin, ClubMemberActionMixin, DetailView):
