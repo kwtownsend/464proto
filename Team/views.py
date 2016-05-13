@@ -49,12 +49,12 @@ class TeamActionMixin(object):
 
 class TeamListView(NavBarMixin, ListView):
     model = Team
-    page_title = _("Club List")
+    page_title = _("Itinerary List")
 
 
 class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailView):
     model = Team
-    page_title = _("Club Detail")
+    page_title = _("Itinerary Detail")
 
     def get_context_data(self, **kwargs):
         # world+dog context data goes here
@@ -115,13 +115,14 @@ class TeamDetailView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVie
 
 class TeamCreateView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, CreateView):
     model = Team
-    success_msg = _("Team created")
+    success_msg = _("Itinerary created")
     fields = None
     form_class = NewTeamForm
-    page_title = _("Team Create")
+    page_title = _("Itinerary Create")
 
     def get_form(self, **kwargs):
         form = super(TeamCreateView, self).get_form(**kwargs)
+        form.set_owner(self.request.user)
         # form.set_leader(self.request.user)
         # form.set_policy(Queue.objects.create(public=True, leader=self.request.user))
         # form.set_owner(self.request.user)
@@ -158,13 +159,13 @@ class TeamResultsView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, DetailVi
     Detail view after create/update of club.
     """
     model = Team
-    page_title = _("Club Results")
+    page_title = _("Itinerary Results")
 
 
 class TeamUpdateView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, UpdateView):
     model = Team
-    success_msg = _("Team updated")
-    page_title = _("Team Update")
+    success_msg = _("Itinerary updated")
+    page_title = _("Itinerary Update")
 
     def get_success_url(self):
         return reverse("Team:detail", kwargs={"pk": self.object.pk})
@@ -172,7 +173,7 @@ class TeamUpdateView(LoginRequiredMixin, TeamActionMixin, NavBarMixin, UpdateVie
 
 class TeamDeleteView(LoginRequiredMixin, TeamActionMixin, DeleteView):
     model = Team
-    page_title = _("Team Delete")
+    page_title = _("Itinerary Delete")
 
     def get_object(self, queryset=None):
         """Hook to ensure club leader guy is request.user"""
@@ -234,8 +235,8 @@ class TeamAddPlayerView(LoginRequiredMixin, PlayerActionMixin, NavBarMixin, Deta
     Maybe this is the results page for a member add to a club?
     """
     model = PlayerRequest
-    page_title = _("Club Add Member")
-    success_msg= _("Member added to club")
+    page_title = _("Itinerary add City")
+    success_msg= _("City added to Itinerary")
 
 
     # TODO: Anyone can approve the member join. They just need to know the url pattern.

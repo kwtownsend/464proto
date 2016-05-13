@@ -20,6 +20,7 @@ class newPlayerRequest(ModelForm):
         model = PlayerRequest
         fields = ["teamToJoin"]
 
+
     _requester = None
     _owner = None
     _teamToJoin = None

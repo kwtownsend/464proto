@@ -1,6 +1,6 @@
 # clubs urls.py
 from django.conf.urls import patterns, include, url
-from . import views
+from Team import views
 
 
 # TODO: I want to standardize namespace names to all lowercase

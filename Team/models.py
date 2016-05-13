@@ -5,7 +5,7 @@ from locations.models import Cities
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=20, help_text='Team name')
+    name = models.CharField(max_length=20)
     # description = models.CharField(max_length=180, help_text='Club description')
     # zipcode = models.CharField(max_length=5)
     # add_date = models.DateField(default=timezone.now)
@@ -66,7 +66,7 @@ class Team(models.Model):
 class PlayerRequest(models.Model):
     player = models.ForeignKey(Cities, default=1)
     requester = models.ForeignKey(User)
-    teamToJoin = models.ForeignKey(Team)
+    teamToJoin = models.ForeignKey(Team, verbose_name='Itinerary Name')
     # request_date = models.DateField(default=timezone.now)
     reasonMessage = models.CharField(max_length=200, help_text="Why do you want to join this club?")
 

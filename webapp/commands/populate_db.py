@@ -29,7 +29,7 @@ class Command(BaseCommand):
                     longitude=row[5],
 
                 )
-                print("Done")
+        print("Done")
 
 
     def handle(self, *args, **options):
